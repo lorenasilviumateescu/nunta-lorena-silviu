@@ -1,40 +1,273 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <title>Lorena & Silviu - Nunta</title>
+<meta charset="UTF-8">
+<title>Lorena & Silviu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+  top: 0;
+  left: 0;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.92);
+  padding: 40px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #c9a96e;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.section {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.section h3 {
+  color: #c9a96e;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 15px;
+  border: 1px solid #c9a96e;
+  color: #c9a96e;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+.form-section {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #c9a96e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* muzica button */
+#music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 999;
+}
+
+/* frunze */
+.leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.leaf {
+  position: absolute;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #d4af37, #8b6f3d);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+</style>
 </head>
+
 <body>
 
+<div class="leaves"></div>
+
+<div id="music-control">🔊 Pornește muzica</div>
+
+<iframe id="music"
+src="https://www.youtube.com/embed/eYAQeV9Z00M?enablejsapi=1&loop=1&playlist=eYAQeV9Z00M"
+allow="autoplay"
+style="display:none">
+</iframe>
+
+<div class="container">
+
 <h1>Lorena & Silviu</h1>
-<p>Te invităm la nunta noastră ❤️</p>
+<p class="subtitle">Ne căsătorim</p>
+
+<p style="text-align:center;">
+Cu inimile pline de emoție și iubire,  
+vă invităm să ne fiți alături în ziua în care vom spune „DA”.
+</p>
+
+<h3 id="countdown" style="text-align:center;"></h3>
+
+<img src="LINK_POZA_TA">
+
+<div class="section">
+<h3>📅 26 Septembrie 2026</h3>
+</div>
+
+<div class="section">
+<h3>Cununia religioasă</h3>
+<p>Biserica Înălțarea Domnului Plopeni</p>
+<a class="map-btn" target="_blank"
+href="https://www.google.com/maps/place/Biserica+%C3%8En%C4%83l%C8%9Barea+Domnului">
+Vezi locația
+</a>
+</div>
+
+<div class="section">
+<h3>Petrecerea</h3>
+<p>Restaurant White Ballroom 1</p>
+<a class="map-btn" target="_blank"
+href="https://www.google.com/maps/place/White+Ballroom">
+Vezi locația
+</a>
+</div>
+
+<div class="section">
+<p>
+Familia Mateescu: Cristina Barbu & Viorel Mateescu<br>
+Familia Balacianu: Gabriela Pirtoacă<br><br>
+Nașii: Ana și Cosmin Balacianu
+</p>
+</div>
+
+<div class="form-section">
+
+<h2 style="text-align:center;">Confirmare participare</h2>
 
 <form id="rsvpForm">
-  <input type="text" id="nume" placeholder="Nume și prenume" required><br><br>
 
-  <select id="insotit">
-    <option>Nu</option>
-    <option>Da</option>
-  </select><br><br>
+<input type="text" id="nume" placeholder="Nume și prenume" required>
 
-  <input type="text" id="nume_insotitor" placeholder="Nume însoțitor"><br><br>
+<select id="insotit">
+  <option>Vine singur</option>
+  <option>Vine însoțit</option>
+</select>
 
-  <input type="number" id="copii" placeholder="Număr copii"><br><br>
+<input type="text" id="nume_insotitor" placeholder="Nume însoțitor">
 
-  <select id="meniu">
-    <option>Standard</option>
-    <option>Vegetarian</option>
-    <option>Vegan</option>
-  </select><br><br>
+<input type="number" id="copii" placeholder="Număr copii">
 
-  <button type="submit">Trimite</button>
+<select id="meniu_copil">
+  <option>Meniu copil - Nu</option>
+  <option>Meniu copil - Da</option>
+</select>
+
+<select id="meniu">
+  <option>Meniu Standard</option>
+  <option>Meniu Vegetarian</option>
+  <option>Meniu Vegan</option>
+</select>
+
+<input type="text" id="alergii" placeholder="Alergii">
+
+<button type="submit">Trimite confirmarea</button>
+
 </form>
 
-<p id="msg"></p>
+<p id="msg" style="text-align:center;"></p>
+
+</div>
+
+</div>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxvIO9ys85-JQwEVdfJLteBs0pWEx17ykcbv8shF-1UN183mNvayu2DQ9M4jZ2ubAx_/exec";
+const scriptURL = "AICI_LINKUL_TAU";
 
+/* countdown */
+const weddingDate = new Date("2026-09-26");
+setInterval(() => {
+  const now = new Date();
+  const diff = weddingDate - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerText =
+    days + " zile până la nuntă 💍";
+}, 1000);
+
+/* frunze */
+function createLeaf() {
+  const leaf = document.createElement("div");
+  leaf.classList.add("leaf");
+  leaf.style.left = Math.random() * window.innerWidth + "px";
+  leaf.style.animationDuration = (6 + Math.random() * 6) + "s";
+  document.querySelector(".leaves").appendChild(leaf);
+  setTimeout(() => leaf.remove(), 12000);
+}
+setInterval(createLeaf, 700);
+
+/* muzica */
+document.getElementById("music-control").addEventListener("click", function() {
+  const iframe = document.getElementById("music");
+  iframe.src += "&autoplay=1";
+  this.innerText = "🎵 Muzica activă";
+});
+
+/* formular */
 document.getElementById("rsvpForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -43,7 +276,9 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     insotit: document.getElementById("insotit").value,
     nume_insotitor: document.getElementById("nume_insotitor").value,
     copii: document.getElementById("copii").value,
-    meniu: document.getElementById("meniu").value
+    meniu_copil: document.getElementById("meniu_copil").value,
+    meniu: document.getElementById("meniu").value,
+    alergii: document.getElementById("alergii").value
   };
 
   fetch(scriptURL, {
@@ -51,7 +286,8 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     body: JSON.stringify(data)
   })
   .then(() => {
-    document.getElementById("msg").innerText = "Confirmare trimisă!";
+    document.getElementById("msg").innerText =
+      "Mulțumim pentru confirmare 💛";
   });
 });
 </script>
