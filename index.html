@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Lorena & Silviu - Nunta</title>
+</head>
+<body>
+
+<h1>Lorena & Silviu</h1>
+<p>Te invităm la nunta noastră ❤️</p>
+
+<form id="rsvpForm">
+  <input type="text" id="nume" placeholder="Nume și prenume" required><br><br>
+
+  <select id="insotit">
+    <option>Nu</option>
+    <option>Da</option>
+  </select><br><br>
+
+  <input type="text" id="nume_insotitor" placeholder="Nume însoțitor"><br><br>
+
+  <input type="number" id="copii" placeholder="Număr copii"><br><br>
+
+  <select id="meniu">
+    <option>Standard</option>
+    <option>Vegetarian</option>
+    <option>Vegan</option>
+  </select><br><br>
+
+  <button type="submit">Trimite</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxvIO9ys85-JQwEVdfJLteBs0pWEx17ykcbv8shF-1UN183mNvayu2DQ9M4jZ2ubAx_/exec";
+
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const data = {
+    nume: document.getElementById("nume").value,
+    insotit: document.getElementById("insotit").value,
+    nume_insotitor: document.getElementById("nume_insotitor").value,
+    copii: document.getElementById("copii").value,
+    meniu: document.getElementById("meniu").value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    document.getElementById("msg").innerText = "Confirmare trimisă!";
+  });
+});
+</script>
+
+</body>
+</html>
