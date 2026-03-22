@@ -2,6 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lorena & Silviu</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
@@ -16,13 +17,13 @@ body {
 
 .overlay {
   background: rgba(255,255,255,0.92);
-  min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px;
 }
 
+/* TITLU */
 h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 50px;
+  font-family: 'Great Vibes';
+  font-size: 42px;
   text-align: center;
 }
 
@@ -31,191 +32,181 @@ h1 {
   color: #c9a96e;
 }
 
-.section {
-  text-align: center;
-  margin-top: 30px;
+/* POZA */
+.couple-img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
 }
 
-.small {
-  font-size: 13px;
-  color: #777;
+/* COUNTDOWN */
+#countdown {
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* PARINTI */
+.family {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.family div {
+  width: 45%;
+  margin-top: 10px;
+}
+
+/* ICON */
+.icon {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* FORM */
-input {
-  width: 90%;
+input, select {
+  width: 100%;
   padding: 10px;
-  margin: 8px;
+  margin-top: 10px;
 }
 
 button {
+  width: 100%;
   padding: 12px;
   background: #c9a96e;
   color: white;
   border: none;
-  width: 200px;
   margin-top: 15px;
 }
 
-/* meniu buttons */
-.menu-option {
-  border: 1px solid #c9a96e;
-  padding: 10px;
-  margin: 5px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.selected {
-  background: #c9a96e;
-  color: white;
-}
-
-/* checkbox list */
-.checkbox-group {
-  text-align: left;
-  width: 80%;
-  margin: auto;
-}
-
-/* muzica */
-#music-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #000;
-  color: white;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
+/* MOBILE */
+@media(max-width:600px){
+  .family div {
+    width: 100%;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div id="music-control">🎵</div>
-
-<iframe id="music"
-src="https://www.youtube.com/embed/eYAQeV9Z00M?enablejsapi=1&loop=1&playlist=eYAQeV9Z00M"
-allow="autoplay"
-style="display:none"></iframe>
-
 <div class="overlay">
 
 <h1>Lorena & Silviu</h1>
 <p class="subtitle">26 Septembrie 2026</p>
 
-<div class="section">
-<p>
-Cu emoție și iubire,<br>
+<p style="text-align:center;">
+Cu inimile pline de emoție,<br>
 vă invităm să ne fiți alături<br>
 în ziua în care vom spune „DA”.
 </p>
+
+<img src="WhatsApp Image 2026-03-22 at 14.08.19.jpeg" class="couple-img">
+
+<div id="countdown"></div>
+
+<!-- PARINTI -->
+<div class="family">
+  <div>
+    <strong>Părinții Mirelui</strong><br>
+    Cristina Barbu<br>
+    Viorel Mateescu
+  </div>
+
+  <div>
+    <strong>Părinții Miresei</strong><br>
+    Gabriela Pirtoacă
+  </div>
 </div>
 
-<div class="section">
-<p>
-Alături de noi vor fi:<br><br>
-
-<strong>Părinții</strong><br>
-Cristina Barbu & Viorel Mateescu<br>
-Gabriela Pirtoacă<br><br>
-
+<p style="text-align:center;">
+<br>
 <strong>Nașii</strong><br>
 Ana & Cosmin Balacianu
 </p>
-</div>
 
-<div class="section">
-<p>
-📍 Cununia religioasă – 15:30<br>
+<!-- LOCATII -->
+<p style="text-align:center;">
+<span class="icon">⛪</span>
+Cununia religioasă – 15:30<br>
 Biserica Înălțarea Domnului<br>
-<span class="small">(vezi locația)</span>
+<span style="font-size:12px">(vezi locația)</span>
 </p>
 
-<p>
-📍 Petrecerea – 19:00<br>
-White Ballroom<br>
-<span class="small">(vezi locația)</span>
+<p style="text-align:center;">
+<span class="icon">🍽️</span>
+Petrecerea – 19:00<br>
+Restaurant White Ballroom 1<br>
+<span style="font-size:12px">(vezi locația)</span>
 </p>
-</div>
 
 <hr>
 
-<div class="section">
-<h2>Confirmare participare</h2>
+<!-- FORM -->
+<h2 style="text-align:center;">Confirmare participare</h2>
 
 <form id="rsvpForm">
 
 <input type="text" id="nume" placeholder="Nume și prenume" required>
 
 <select id="insotit">
-<option>Vine singur</option>
-<option>Vine însoțit</option>
+<option>Vin singur</option>
+<option>Vin însoțit</option>
 </select>
 
 <input type="text" id="nume_insotitor" placeholder="Nume însoțitor" style="display:none;">
 
-<input type="number" id="copii" placeholder="Număr copii">
+<label><input type="checkbox" id="copilCheck"> Vin cu copil</label>
 
-<h3>Meniu</h3>
-<div id="menu">
-<div class="menu-option" data-value="Standard">Standard</div>
-<div class="menu-option" data-value="Vegetarian">Vegetarian</div>
-<div class="menu-option" data-value="Vegan">Vegan</div>
-</div>
+<input type="number" id="copii" placeholder="Număr copii" style="display:none;">
 
-<h3>Alergii</h3>
-<div class="checkbox-group">
-<label><input type="checkbox" value="Lactoză"> Lactoză</label><br>
-<label><input type="checkbox" value="Gluten"> Gluten</label><br>
-<label><input type="checkbox" value="Nuci"> Nuci</label><br>
-<label><input type="checkbox" value="Ouă"> Ouă</label><br>
-<label><input type="checkbox" value="Fructe de mare"> Fructe de mare</label>
-</div>
+<select id="meniu">
+<option>Standard</option>
+<option>Vegetarian</option>
+<option>Vegan</option>
+</select>
+
+<input type="text" id="alergii" placeholder="Alergii (ex: lactoză, gluten)">
 
 <button type="submit">Confirmă</button>
 
 </form>
 
-<p id="msg"></p>
-
-</div>
+<p id="msg" style="text-align:center;"></p>
 
 </div>
 
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbxvIO9ys85-JQwEVdfJLteBs0pWEx17ykcbv8shF-1UN183mNvayu2DQ9M4jZ2ubAx_/exec";
 
-/* muzica */
-document.getElementById("music-control").onclick = () => {
-  document.getElementById("music").src += "&autoplay=1";
-};
+/* COUNTDOWN */
+const weddingDate = new Date("2026-09-26");
+setInterval(() => {
+  const now = new Date();
+  const diff = weddingDate - now;
+  const days = Math.floor(diff / (1000*60*60*24));
+  document.getElementById("countdown").innerText =
+    "Mai sunt " + days + " zile până la nuntă 💍";
+}, 1000);
 
-/* insotitor toggle */
-document.getElementById("insotit").addEventListener("change", function() {
+/* INSOTITOR */
+document.getElementById("insotit").onchange = function(){
   document.getElementById("nume_insotitor").style.display =
     this.value.includes("însoțit") ? "block" : "none";
-});
+};
 
-/* meniu selectie */
-let selectedMenu = "";
+/* COPII */
+document.getElementById("copilCheck").onchange = function(){
+  document.getElementById("copii").style.display =
+    this.checked ? "block" : "none";
+};
 
-document.querySelectorAll(".menu-option").forEach(el => {
-  el.onclick = () => {
-    document.querySelectorAll(".menu-option").forEach(e => e.classList.remove("selected"));
-    el.classList.add("selected");
-    selectedMenu = el.dataset.value;
-  };
-});
-
-/* formular */
-document.getElementById("rsvpForm").addEventListener("submit", function(e) {
+/* FORM */
+document.getElementById("rsvpForm").addEventListener("submit", function(e){
   e.preventDefault();
-
-  const alergii = Array.from(document.querySelectorAll("input[type=checkbox]:checked"))
-    .map(el => el.value).join(", ");
 
   fetch(scriptURL, {
     method: "POST",
@@ -224,14 +215,13 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
       insotit: insotit.value,
       nume_insotitor: nume_insotitor.value,
       copii: copii.value,
-      meniu: selectedMenu,
-      alergii: alergii
+      meniu: meniu.value,
+      alergii: alergii.value
     })
-  }).then(() => msg.innerText = "Mulțumim 💛");
+  }).then(()=> msg.innerText="Mulțumim 💛");
 });
 </script>
 
 </body>
 </html>
-
 <!-- update -->
